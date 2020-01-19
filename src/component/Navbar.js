@@ -70,10 +70,10 @@ export default class Navbar extends Component {
             'aria-describedby': 'message-id'
           }}
           onClose={this.closeSnackbar}
-          actions={[
+          action={[
             <IconButton
               onClick={this.closeSnackbar}
-              color='red'
+              color='inherit'
               key='close'
               aria-label='close'
             >
