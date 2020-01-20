@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = {
   root: {
@@ -9,15 +10,43 @@ const styles = {
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
-    marginBottom: '-0.5rem'
+    marginBottom: '-0.5rem',
+    '&:hover svg': {
+      color: 'white',
+      transform: 'scale(1.3)',
+      transition: 'all 0.3s ease-in-out'
+    }
+  },
+  boxContent: {
+    position: 'absolute',
+    width: '100%',
+    left: 0,
+    bottom: 0,
+    padding: '1rem',
+    color: 'black',
+    letterSpacing: '1px',
+    textTransform: 'uppercase',
+    fontSize: '1.2rem',
+    display: 'flex',
+    justifyContent: 'space-between'
+  },
+  deteleIcon: {
+    // padding: '1rem',
+    color: 'rgba(0,0,0,0.7)',
+    fontSize: '2rem'
   }
 };
 
 function DraggableColorBox(props) {
-  const { classes, color, name } = props;
+  const { classes, color, name, handleClick } = props;
   return (
     <div style={{ backgroundColor: color }} className={classes.root}>
-      {name}
+      <div className={classes.boxContent}>
+        <span>{name}</span>
+        <span>
+          <DeleteIcon className={classes.deteleIcon} onClick={handleClick} />
+        </span>
+      </div>
     </div>
   );
 }
