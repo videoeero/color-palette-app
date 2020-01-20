@@ -7,7 +7,8 @@ export default {
     justifyContent: 'center'
   },
   container: {
-    width: '50%',
+    width: '60rem',
+    maxWidth: '90vw',
     display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'column',
@@ -26,8 +27,9 @@ export default {
   palettes: {
     boxSizing: 'border-box',
     width: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 30%)',
-    gridGap: '5%'
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap'
   }
 };

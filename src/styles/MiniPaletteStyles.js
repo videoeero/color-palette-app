@@ -6,11 +6,13 @@ export default {
     padding: '0.5rem',
     position: 'relative',
     overflow: 'hidden',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    width: '15rem',
+    margin: '1rem'
   },
   colors: {
     backgroundColor: 'grey',
-    height: '150px',
+    height: '15rem',
     width: '100%'
   },
   title: {
