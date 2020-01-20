@@ -7,9 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import 'rc-slider/assets/index.css';
 import Slider from 'rc-slider';
-import './Navbar.css';
+import { withStyles } from '@material-ui/styles';
+import styles from '../styles/NavbarStyles';
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   constructor(props) {
     super(props);
 
@@ -31,18 +32,18 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { level, changeLevel, showSlider } = this.props;
+    const { level, changeLevel, showSlider, classes } = this.props;
     const { format } = this.state;
 
     return (
-      <header className='Navbar'>
-        <div className='logo'>
+      <header className={classes.Navbar}>
+        <div className={classes.logo}>
           <Link to='/'>reactcolorpicker</Link>
         </div>
         {showSlider && (
-          <div className='slider-container'>
+          <div>
             <span>Level: {level}</span>
-            <div className='slider'>
+            <div className={classes.slider}>
               <Slider
                 defaultValue={level}
                 min={100}
@@ -89,3 +90,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default withStyles(styles)(Navbar);
