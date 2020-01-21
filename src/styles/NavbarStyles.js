@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 export default {
   Navbar: {
     display: 'flex',
@@ -6,7 +8,15 @@ export default {
     height: '6vh',
     '& .select-container': {
       marginLeft: 'auto',
-      marginRight: '1rem'
+      marginRight: '1rem',
+      [sizes.down('xs')]: {
+        margin: '1rem auto'
+      }
+    },
+    [sizes.down('xs')]: {
+      flexDirection: 'column',
+      height: 'initial',
+      justifyContent: 'center'
     }
   },
   logo: {
@@ -18,10 +28,21 @@ export default {
     height: '100%',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     '& a': {
       textDecoration: 'none',
       color: 'black'
+    },
+    [sizes.down('xs')]: {
+      fontSize: '1.5rem',
+      padding: '1.5rem',
+      width: '100%',
+      marginBottom: '1.2rem'
     }
+  },
+  sliderContainer: {
+    marginLeft: '1rem',
+    fontSize: '1.5rem'
   },
   slider: {
     width: '34rem',
@@ -42,6 +63,9 @@ export default {
       height: '1.3rem',
       marginLeft: '1rem',
       marginTop: '-0.3rem'
+    },
+    [sizes.down('xs')]: {
+      width: '60vw'
     }
   }
 };
