@@ -17,9 +17,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from '../styles/PaletteListStyles';
 
 class PaletteList extends Component {
-  goToPalette(id) {
-    this.props.history.push(`/palette/${id}`);
-  }
   constructor(props) {
     super(props);
 
@@ -31,6 +28,7 @@ class PaletteList extends Component {
     this.openDialog = this.openDialog.bind(this);
     this.closeDialog = this.closeDialog.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.goToPalette = this.goToPalette.bind(this);
   }
 
   openDialog(id) {
@@ -43,6 +41,10 @@ class PaletteList extends Component {
   handleDelete() {
     this.props.deletePalette(this.state.deletingId);
     this.closeDialog();
+  }
+
+  goToPalette(id) {
+    this.props.history.push(`/palette/${id}`);
   }
 
   render() {
@@ -63,8 +65,7 @@ class PaletteList extends Component {
               <CSSTransition key={palette.id} classNames='fade' timeout={400}>
                 <MiniPalette
                   {...palette}
-                  handleClick={() => this.goToPalette(palette.id)}
-                  // handleDelete={deletePalette}
+                  goToPalette={this.goToPalette}
                   openDialog={this.openDialog}
                   key={palette.id}
                   id={palette.id}
