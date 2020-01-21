@@ -9,6 +9,7 @@ export default {
     '& .select-container': {
       marginLeft: 'auto',
       marginRight: '1rem',
+
       [sizes.down('xs')]: {
         margin: '1rem auto'
       }
