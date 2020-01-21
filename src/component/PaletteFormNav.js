@@ -27,7 +27,6 @@ class PaletteFormNav extends Component {
   }
 
   showForm() {
-    console.log(this.state.formShowing);
     this.setState({ formShowing: true });
   }
 
@@ -54,7 +53,9 @@ class PaletteFormNav extends Component {
               color='inherit'
               aria-label='Open drawer'
               onClick={this.props.handleDrawerOpen}
-              className={classNames(classes.menuButton, open && classes.hide)}
+              className={classNames(classes.menuButton, {
+                [classes.hide]: open
+              })}
             >
               <MenuIcon />
             </IconButton>
